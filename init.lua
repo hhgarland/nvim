@@ -47,7 +47,7 @@ require('packer').startup(function(use)
 
   -- Other plugins
   use 'Mofiqul/vscode.nvim' -- VSCode Dark+ theme
-  use 'gruvbox-community/gruvbox' -- Gruvbox theme
+  use 'ellisonleao/gruvbox.nvim' -- Gruvbox theme written in Lua
   use {"rockyzhang24/arctic.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
@@ -160,8 +160,8 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.g.gruvbox_italic = true
-vim.cmd [[colorscheme vscode]]
+vim.o.background = "dark"
+vim.cmd [[colorscheme gruvbox]]
 
 -- Global statusline
 vim.o.laststatus = 3
