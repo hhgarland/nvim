@@ -50,12 +50,28 @@ require('packer').startup(function(use)
   use 'ellisonleao/gruvbox.nvim' -- Gruvbox theme written in Lua
   use {"rockyzhang24/arctic.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use 'p00f/nvim-ts-rainbow' -- Rainbow parentheses
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
   use 'tpope/vim-surround' -- Surround provides mappings to easily delete, change and add such surroundings in pairs
   use 'dhruvasagar/vim-table-mode' -- Table mode
   use {"shortcuts/no-neck-pain.nvim", tag = "*" }
+
+require("nvim-treesitter.configs").setup { -- Rainbow parentheses
+  highlight = {
+      -- ...
+  },
+  -- ...
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
+}
 
 use { -- Fancier tabline
   'kdheepak/tabline.nvim',
@@ -72,9 +88,9 @@ use { -- Fancier tabline
         component_separators = {'|', '|'},
         max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
         show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
-        show_devicons = true, -- this shows devicons in buffer section
+        show_devicons = false, -- this shows devicons in buffer section
         show_bufnr = false, -- this appends [bufnr] to buffer section,
-        show_filename_only = false, -- shows base filename only instead of relative path in filename
+        show_filename_only = true, -- shows base filename only instead of relative path in filename
         modified_icon = "+ ", -- change the default modified icon
         modified_italic = false, -- set to true by default; this determines whether the filename turns italic if modified
         show_tabs_only = false, -- this shows only tabs instead of tabs + buffers
@@ -159,6 +175,11 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
+require("gruvbox").setup({
+    palette_overrides = {
+        light1 = "#FBF1C7",
+    }
+})
 vim.o.termguicolors = true
 vim.o.background = "dark"
 vim.cmd [[colorscheme gruvbox]]
