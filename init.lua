@@ -175,7 +175,7 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
-require("gruvbox").setup({
+require("gruvbox").setup({ -- Use lighter foreground text #FBF1C7
     palette_overrides = {
         light1 = "#FBF1C7",
     }
