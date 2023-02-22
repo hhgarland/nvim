@@ -46,8 +46,9 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   -- Other plugins
-  use 'Mofiqul/vscode.nvim' -- VSCode Dark+ theme
-  use 'ellisonleao/gruvbox.nvim' -- Gruvbox theme written in Lua
+  use 'lewpoly/sherbet.nvim' -- Sherbet colorscheme
+  use 'Mofiqul/vscode.nvim' -- VSCode Dark+ colorscheme
+  use 'ellisonleao/gruvbox.nvim' -- Gruvbox colorscheme written in Lua
   use {"rockyzhang24/arctic.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'p00f/nvim-ts-rainbow' -- Rainbow parentheses
@@ -82,10 +83,10 @@ use { -- Fancier tabline
       options = {
       -- If lualine is installed tabline will use separators configured in lualine by default.
       -- These options can be used to override those settings.
-        -- section_separators = {'', ''},
-        -- component_separators = {'', ''},
-        section_separators = {'', ''},
-        component_separators = {'|', '|'},
+        section_separators = {'', ''},
+        component_separators = {'', ''},
+        -- section_separators = {'', ''},
+        -- component_separators = {'|', '|'},
         max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
         show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
         show_devicons = false, -- this shows devicons in buffer section
@@ -175,14 +176,9 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
-require("gruvbox").setup({ -- Use lighter foreground text #FBF1C7
-    palette_overrides = {
-        light1 = "#FBF1C7",
-    }
-})
 vim.o.termguicolors = true
 vim.o.background = "dark"
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme vscode]]
 
 -- Global statusline
 vim.o.laststatus = 3
@@ -224,11 +220,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'gruvbox',
-    component_separators = { left = '|', right = '|'},
-    section_separators = { left = '', right = ''},
-    -- component_separators = { left = '', right = ''},
-    -- section_separators = { left = '', right = ''},
+    theme = 'vscode',
+    -- component_separators = { left = '|', right = '|'},
+    -- section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
   },
 }
 
@@ -238,7 +234,7 @@ require('Comment').setup()
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
-  -- char = '┆',
+  char = '┆',
   show_trailing_blankline_indent = false,
 }
 
@@ -293,7 +289,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'help' },
+  ensure_installed = { 'go', 'lua', 'python', 'rust', 'typescript', 'help' },
 
   highlight = { enable = true },
   indent = { enable = true },
