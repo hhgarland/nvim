@@ -176,9 +176,14 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
+require("gruvbox").setup({
+    palette_overrides = {
+        light1 = "#FBF1C7",
+    }
+})
 vim.o.termguicolors = true
 vim.o.background = "dark"
-vim.cmd [[colorscheme vscode]]
+vim.cmd [[colorscheme gruvbox]]
 
 -- Global statusline
 vim.o.laststatus = 3
@@ -220,7 +225,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('lualine').setup {
   options = {
     icons_enabled = false,
-    theme = 'vscode',
+    theme = 'auto',
     -- component_separators = { left = '|', right = '|'},
     -- section_separators = { left = '', right = ''},
     component_separators = { left = '', right = ''},
