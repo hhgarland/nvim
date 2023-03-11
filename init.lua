@@ -83,10 +83,10 @@ use { -- Fancier tabline
       options = {
       -- If lualine is installed tabline will use separators configured in lualine by default.
       -- These options can be used to override those settings.
-        section_separators = {'', ''},
-        component_separators = {'', ''},
-        -- section_separators = {'', ''},
-        -- component_separators = {'|', '|'},
+        -- section_separators = {'', ''},
+        -- component_separators = {'', ''},
+        section_separators = {'', ''},
+        component_separators = {'|', '|'},
         max_bufferline_percent = 66, -- set to nil by default, and it uses vim.o.columns * 2/3
         show_tabs_always = false, -- this shows tabs only when there are more than one tab or if the first tab is named
         show_devicons = false, -- this shows devicons in buffer section
@@ -226,10 +226,10 @@ require('lualine').setup {
   options = {
     icons_enabled = false,
     theme = 'auto',
-    -- component_separators = { left = '|', right = '|'},
-    -- section_separators = { left = '', right = ''},
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = { left = '|', right = '|'},
+    section_separators = { left = '', right = ''},
+    -- component_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
   },
 }
 
