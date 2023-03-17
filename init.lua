@@ -46,10 +46,7 @@ require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
 
   -- Other plugins
-  use 'lewpoly/sherbet.nvim' -- Sherbet colorscheme
-  use 'Mofiqul/vscode.nvim' -- VSCode Dark+ colorscheme
   use 'ellisonleao/gruvbox.nvim' -- Gruvbox colorscheme written in Lua
-  use {"rockyzhang24/arctic.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
   use 'p00f/nvim-ts-rainbow' -- Rainbow parentheses
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
