@@ -112,18 +112,18 @@ require('lazy').setup({
     },
   },
 
-  { -- Gruvbox theme
-    'ellisonleao/gruvbox.nvim',
-    priority = 1000,
-    config = function()
-      require("gruvbox").setup({
-        palette_overrides = {
-          light1 = "#fbf1c7",
-        }
-      })
-      vim.cmd.colorscheme 'gruvbox'
-    end,
-  },
+  -- Gruvbox theme
+ { 'ellisonleao/gruvbox.nvim',
+  priority = 1000,
+  config = function ()
+    require("gruvbox").setup({
+      palette_overrides = {
+        light1 = "#fbf1c7",
+      }
+    })
+    vim.cmd.colorscheme 'gruvbox'
+  end
+},
 
   { -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -131,7 +131,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
